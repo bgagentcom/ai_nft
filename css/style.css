@@ -416,6 +416,10 @@ body {
   background-repeat: repeat-y;
   background-position: center;
   overflow-x: hidden;
+  cursor: none;
+}
+body.overflow {
+  overflow: hidden;
 }
 .footer {
   margin-top: auto;
@@ -745,7 +749,7 @@ h2 {
   }
 }
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -755,10 +759,21 @@ h2 {
   -webkit-transition: ease-out 0.3s;
   transition: ease-out 0.3s;
 }
-.header--scroll {
+.header.can-animate {
+  -webkit-transition: visibility 0s 0.3s linear, -webkit-transform 0.3s ease;
+  transition: visibility 0s 0.3s linear, -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease, visibility 0s 0.3s linear;
+  transition: transform 0.3s ease, visibility 0s 0.3s linear, -webkit-transform 0.3s ease;
+}
+.header.is-fixed {
   background-color: rgba(255, 255, 255, 0.05);
-  -webkit-transition: ease-out 0.3s;
-  transition: ease-out 0.3s;
+  position: fixed;
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+}
+.header.scroll-up {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 .header__wrap {
   display: -webkit-box;
@@ -1791,6 +1806,13 @@ h2 {
   -webkit-transition: ease-out 0.3s;
   transition: ease-out 0.3s;
 }
+.scope__link:hover .scope__img img,
+.scope__link:active .scope__img img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: linear 0.3s;
+  transition: linear 0.3s;
+}
 .scope__img {
   width: 100%;
   height: 180px;
@@ -1815,6 +1837,8 @@ h2 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+  -webkit-transition: linear 0.3s;
+  transition: linear 0.3s;
 }
 .scope__title {
   margin-top: 0;
@@ -2331,7 +2355,8 @@ h2 {
   background-size: contain;
 }
 .partner__slider .owl-nav button.owl-next {
-  right: 40px;
+  left: 270px;
+  right: auto;
 }
 .partner__slider .owl-nav button.owl-prev {
   display: none;
@@ -2397,6 +2422,7 @@ h2 {
     width: 90px;
     height: 90px;
     right: calc(50% - 250px);
+    left: auto;
     background-image: url(../img/icons/arrow-blue.svg);
     background-size: 122px 122px;
     background-position: center;
@@ -2591,6 +2617,11 @@ blockquote::before {
   margin-top: 30px;
   width: 100%;
   text-align: center;
+}
+.market__img img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .market__info {
   font-size: 14px;

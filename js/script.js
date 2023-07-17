@@ -2,15 +2,16 @@
 $('.header__menu').click(function() {
   $(this).toggleClass('header__menu--close');
   $('.menu').slideToggle();
+  $('body').toggleClass('overflow');
 })
 
-$(window).scroll(function(){
-  if ((window.pageYOffset || document.documentElement.scrollTop ||document.body.scrollTop) >= 100) {
-    $('.header').addClass('header--scroll');
-  } else {
-    $('.header').removeClass('header--scroll');
-  };
-});
+//$(window).scroll(function(){
+//  if ((window.pageYOffset || document.documentElement.scrollTop ||document.body.scrollTop) >= 100) {
+//    $('.header').addClass('header--scroll');
+//  } else {
+//    $('.header').removeClass('header--scroll');
+//  };
+//});
 
 //Parallax
 let bg1 = document.querySelector('.promo__drop--left');
